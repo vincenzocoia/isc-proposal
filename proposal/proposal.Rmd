@@ -3,10 +3,14 @@
 This is where the proposal should be outlined. 
 -->
 
+The purpose is to implement a framework for probability distributions.
+
 ## Overview
 <!--
 At a high-level address what your proposal is and how it will address the problem identified. Highlight any benefits to the R Community that follow from solving the problem. This should be your most compelling section.
 -->
+
+I have a design for probability distributions that needs to be implemented. 
 
 ## Detail
 <!--
@@ -18,3 +22,8 @@ Depending on project type the detail section should include:
  - [ ] Architecture
  - [ ] Assumptions
 -->
+
+- MVP: a distribution object evaluatable without parameters.
+- Architecture:
+  - Immutable environment containing functions.
+- Assumptions: I'll be able to come up with something for the parameters.

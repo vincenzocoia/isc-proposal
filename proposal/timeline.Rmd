@@ -10,6 +10,9 @@ Covering the planning phase, this section should provide a relatively detailed p
  - [ ] Reporting framework
 -->
 
+I'm already up and running (crawling?) with **distionary**, so once you and I establish how we will communicate, I can continue the momentum.
+
+I am prepared to take 10 hours per week off of work as soon as paperwork can be processed, which I will use for package development. 
 
 ## Technical delivery
 <!--
@@ -17,6 +20,17 @@ Covering the actual delivery of the project this section should provide at least
 
 Including target dates is really important as you need to be committed and the ISC need to have a means of tracking delivery
 -->
+
+Assuming 10 hours per week available for software development:
+
+- Day 1: Reach out to ROpenSci (and others?) for feedback on the proposed design, or to let them know that a sample will be coming soon.
+- Weeks 1-2: Get a preliminary distribution object coded.
+- Week 3: If waiting for feedback, spend time on Milestone 3 tasks (documentation, unit tests, CRAN-readiness).
+- Weeks 4-5: Update distribution object with feedback.
+- Week 6: Rewire all the things.
+- Week 7: Submit to CRAN.
+
+Assuming a November 1, 2024 start, this work will be done on Friday December 20, 2024 -- before the winter holidays.
 
 ## Other aspects
 <!--
@@ -28,3 +42,5 @@ Covering non-technical activities like on-going publicity, paper preparation, di
  - [ ] UseR!
  - [ ] ISC meetings
 -->
+
+I'm going to add a "Probaverse Blog" to the probaverse.com website (I already have it queued up), and will add an announcement post there. I'm also happy to give a presentation at an ISC meeting. I'm not sure who else might want to re-post my blog post, but your help here would be great.
