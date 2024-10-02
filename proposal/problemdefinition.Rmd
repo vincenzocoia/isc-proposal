@@ -11,18 +11,36 @@ It is important to cover:
 -->
 
 
-The probaverse ([probaverse.com](https://probaverse.com)) is a suite of tools in R for exploring the full space of possible outcomes in an analysis. It elevates probability distributions as tangible objects that realistically represent your system. It's based on creating domain-specific languages for probability distributions. There are currently three functional packages ([distionary](https://distionary.netlify.app/), [distplyr](https://distplyr.netlify.app/), [famish](https://famish.netlify.app/)) and one conceptual one ([couple](https://couple.netlify.app/)). 
+The probaverse ([probaverse.com](https://probaverse.com); [GitHub Page](https://github.com/probaverse/)) is a suite of packages in R whose mission is to explore the full space of possible outcomes in an analysis. It elevates probability distributions as tangible objects that realistically represent a data analysis, workable through a principled grammar. It is inspired by the tidyverse, but for distributions.
 
-Currently, the probaverse exists as a protoype. It is functional, and works quite well: I regularly use it to develop probabilistic models, both simple and advanced (c.f. tale of two tribs for an advanced example). However, the distribution object was created hollowly but now more is needed before I can advance the software.
+There are currently four packages with varying level of functionality, none of which are on CRAN yet:
 
-While there already exist packages like distributional that help you work with distribution objects, it's essentially just a wrapper around the stats package, not a toolkit for easily building 90\% of useful probability distributions. There are missing operations, missing ways to evaluate a distribution, and missing the use of homemade distributions. the probaverse fixes that through flexibility.
+- [distionary](https://distionary.netlify.app/): the foundation of the probaverse: defines the distribution object and its evaluation. [_the main subject of the proposed work_].
+- [distplyr](https://distplyr.netlify.app/): manipulation of probability distributions.
+- [famish](https://famish.netlify.app/): fitting distributions to data or observed constraints.
+- [couple](https://couple.netlify.app/): building multivariate distributions by piecing together components.
 
-Growth in the probaverse has been ad hoc whenever a new feature is needed at BGC. But as usual in consulting, there is limited budget, and the insfrastructure is starting to look like frankenstein, especially given the lack of robustness to the distribution object. While BGC has expressed interest in further development of *couple*, it's hard to make a case to a geohazard consulting company to let me also execute my refactoring plan on the root of the probaverse. And as a working parent, development during my "free time" is not reliable.
+Growth in the probaverse has been ad hoc, built when I find time at home (difficult as an involved parent to a young child), or when a new feature is needed for a work project (there is usually limited budget though). While the current framework allows for advanced modelling already, their are limitations to the way the distribution object is currently being defined. Distributions are created "hollow", simply pointing to functions for its evaluation (e.g., `dnorm()` and `pnorm()`), and this has resulted in three important problems:
 
-That foundation -- the distribution object -- being shaky has also prevented me from submitting distionary to CRAN. And that means all downstream packages (distplyr, famish, couple) cannot be submitted to CRAN. 
+- Lack of structure results in occasional issues (e.g., distribution not found).
+- Specifying homemade distributions is clunky.
+- Further probaverse growth is inhibited: the lack of distribution parameters prevents a principled grammar for **famish**, and the object simplicity makes it unneccessarily difficult to build multi-dimensional distributions in **couple**. 
 
-This is a low-to-medium risk project because I have already designed most of the new distribution object (see within). 
+This project is about refactoring of the distribution object in **distionary**, and to submit the package to CRAN, due to its importance in the overall probaverse workflow. 
 
-This should be tackled because lots of people work with probability distributions, and from my experience, these people also need an easy way to work with distributions. Refactoring distionary and putting it on CRAN means that people are more likely to use it, and it will also allow for downstream probaverse packages to go on CRAN (distplyr can go up almost as-is, for example). It will open up the door for more advanced probabilistic modelling, and also help students learn about distributions by being able to "touch" them as R objects. 
+## Who it affects
 
-If I get distionary and distplyr on CRAN, it will also affect practitioners conducting flood frequency analysis across Canada and probably worldwide, since I am writing a manual with my employer on how to conduct flood frequency analysis in Canada -- and we would like to include the probaverse in our worked examples (because that's we use it at BGC).
+Lots of people work with probability distributions. There are also lots of people that would benefit from using them, but don't because they are too clumsy to work with under existing infrastructure. And, there are lots of people learning about probability distributions that would have an easier time if using the probaverse. The probaverse is for all of these people. And refactoring the distribution object will unlock these benefits. 
+
+Having distionary on CRAN will also impact practitioners conducting flood frequency analysis (FFA) across Canada and probably worldwide, since I am writing an official manual with my employer (BGC) together with Environment and Climate Change Canada on the topic. We would like to include the probaverse in our worked examples (because we use it widely at BGC), but funding from either entity is limited. BGC has expressed interest in providing some budget to advance the **couple** R package, which would complement the current project.
+
+## Previous attempts
+
+I have most of the refactoring design worked out; see the "proposal" section.
+
+As for software most similar to the probaverse, the closest is **distributional**, which also constructs distribution objects, but is essentially just a wrapper to the **stats** package with some added extensions and no option for manual extensions, and therefore lacks the flexibility needed to create useful probability models. Another package is **distr**, which appears to be quite flexible, but is unintuitive and like **distributional**, lacks the wider probaverse goals of extensibility and simplicity. The grammar introduced by the whole probaverse is unique in that it provides a natural way to access most of the space of useful probability distributions.
+
+
+
+
+

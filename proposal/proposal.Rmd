@@ -3,14 +3,67 @@
 This is where the proposal should be outlined. 
 -->
 
-The purpose is to implement a framework for probability distributions.
-
 ## Overview
 <!--
 At a high-level address what your proposal is and how it will address the problem identified. Highlight any benefits to the R Community that follow from solving the problem. This should be your most compelling section.
 -->
 
-I have a design for probability distributions that needs to be implemented. 
+From the Problem Definition above, we established that this project will focus on refactoring the distribution object in the **distionary** package. 
+
+Some goals of the design are outlined in the examples below.
+
+- Basic example:
+
+```
+# Make the distribution family
+d <- distribution(
+  .density = \(x) ifelse(x < 0, 0, exp(-x / mu) / mu),
+  .mean = mu,
+  .name = "Exponential",
+  .vtype = continuous(),
+  .params = params(mu, mu > 0)  # Parameter space can be specified, too.
+)
+
+# Should be able to save the distribution (e.g., as a model result)
+readr::write_rds(d, "useful_distribution.rds")
+
+# Resolve to a specific distribution; perhaps evaluate the cdf:
+resolve_params(d, mu = 1) |>
+  eval_cdf(at = 1:3)
+#> [1] 0.6321206 0.8646647 0.9502129
+```
+
+- Should be able to include more complex chains of variable dependencies:
+
+```
+distribution(
+  g = 9.81,
+  a = \(s, t) some_complicated function,
+  b = \(s, t) another_complicated_function,
+  .density = \(x) a(x, x - theta) * b(x + theta, x) / g,
+  .mean = theta^2 / g,
+  .vtype = continuous(),
+  .params = params(theta)
+)
+```
+
+- Wrappers will exist for common distribution families, and subfamilies can be created.
+
+```
+# Resolves to a Gamma distribution; perhaps also enframe the quantile function
+dst_gamma(shape = 1, rate = 2) |>
+    enframe_quantile(at = c(0.25, 0.5, 0.75))
+#> # A tibble: 3 × 2
+#>    .arg quantile
+#>   <dbl>    <dbl>
+#> 1  0.25    0.144
+#> 2  0.5     0.347
+#> 3  0.75    0.693
+
+# Resolves to the Exponential family with parameter `rate`:
+dst_gamma(shape = 1)
+```
+
 
 ## Detail
 <!--
@@ -23,7 +76,15 @@ Depending on project type the detail section should include:
  - [ ] Assumptions
 -->
 
-- MVP: a distribution object evaluatable without parameters.
-- Architecture:
-  - Immutable environment containing functions.
-- Assumptions: I'll be able to come up with something for the parameters.
+Through an iterative design process, I have come up with the following design:
+
+- A distribution object contains a "distribution environment" containing properties and function definitions related to the distribution (e.g., the distribution mean, density function, or cumulative distribution function). The environment is like the namespace of a mini R package, and like a namespace, will be locked (for immutability). By default, it goes below the caller environment. 
+- Although any object can be made in the distribution environment, special named objects will be accessed by evaluation functions like `eval_density()` (looks for `.density` object) and `mean()` (looks for `.mean` object). 
+- Distribution parameters (like the mean and variance of the Normal distribution) might not be resolved to specific values. Once resolved, objects in the distribution environment can also be resolved.
+  - Lazy or active bindings sound like appealing options for the initial definition of the distribution environment, or incorporating parameters in a data mask, but issues arise with the order in which properties are accessed.
+  - Lists sound like a temptingly simple alternative to environments, but issues arise from a lack of care on the functions' enclosing environments.
+  - More realistically, instead of trying to create an environment with unresolved parameters, an "environment generator" can be created consisting of expressions or quosures that can resolve to a new environment every time parameters are resolved.
+
+Feedback on the design from ROpenSci will be sought, along with conversations with the ISC.
+
+A minimum viable product includes improvements to the existing **distionary** package so as to submit to CRAN. A simpler design can be permitted in case not all the goals (listed in the previous section) are achieved.

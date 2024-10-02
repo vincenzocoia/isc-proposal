@@ -1,4 +1,4 @@
-proposal<-"Improvements to the Probaverse"
+proposal<-"Launching the Probaverse"
 proposal.file<-"isc-proposal.Rmd"
 author<-"Vincenzo Coia"
 

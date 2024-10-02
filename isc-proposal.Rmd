@@ -2,7 +2,19 @@
 title: "`r proposal`"
 author: "`r author`"
 date: "`r Sys.Date()`"
-output: html_document
+output: 
+  pdf_document:
+    toc: true
+    toc_depth: 2
+    number_sections: true
+  html_document:
+    toc: true
+    toc_depth: 2
+    toc_float: true
+    theme: cerulean
+geometry: margin=1.5cm
+fontsize: 11pt
+linkcolor: red
 ---
 
 ```{r setup, eval=TRUE, results='hide', echo=FALSE}

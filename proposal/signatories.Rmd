@@ -10,15 +10,15 @@ An optional section would be for R-Core signatories where changes to R are propo
 Who are the people responsible for actually delivering the project if the proposal gets accepted and are already signed up and rearing to go?
 -->
 
-Just me (Vincenzo Coia). You can learn more about me by visiting https://vincenzocoia.com/
+I (Vincenzo Coia) will be the person to actually deliver the project. You can learn more about me by visiting https://vincenzocoia.com/, but here's a summary of relevant information.
 
-**Summary of my background**:
+### Summary of my background
 
-- 2012-2017: PhD in statistics from UBC.
-- 2017-2022: Teach data science at UBC, including [STAT 545](https://stat545.stat.ubc.ca/) (Jenny Bryan's famous R course), eventually ending up as Assistant Professor of Teaching.
-- 2022-present: work at BGC Engineering Inc. as a data scientist modelling geohazards.
+- **2012-2017**: PhD in statistics from The University of British Columbia (UBC)
+- **2017-2022**: Teach data science at UBC, including [STAT 545](https://stat545.stat.ubc.ca/) (Jenny Bryan's famous R course), eventually ending up as Assistant Professor of Teaching.
+- **2022-present**: work at BGC Engineering Inc. as a data scientist modelling geohazards.
 
-**Summary of relevant skills**:
+### Summary of relevant skills
 
 - Expert in designing and writing R packages, especially around grammars. Demonstrated packages in addition to the probaverse include: 
     - [igcop](https://igcop.netlify.app/), which is on CRAN and has a C++ backend (this one is not a grammar).
@@ -40,4 +40,4 @@ I put this proposal together myself.
 Who has been given the opportunity to provide feedback on the proposal? This should include any R Consortium & ISC members who the proposal has been discussed with.
 -->
 
-Nobody. 
+I decided pretty late to put together a proposal, so nobody was consulted. 
