@@ -8,7 +8,7 @@ An idea of what is required to make the project actually happen
 Who needs to be involved, what's the proposed structure, what will it take to get their involvement?
 -->
 
-I would like to get the feedback of ROpenSci early. I'll bring them on right away if I know I'll have dedicated tie to work on the project. As mentioned, I would also appreciate the help of the ISC to get other reviewers.
+I would like to get the feedback of ROpenSci early. I will have probably already reached out to them by the start date. As mentioned, I would also appreciate the help of the ISC to get other feedback.
 
 ## Processes
 <!-- 
@@ -26,7 +26,7 @@ Will cloud computing be used - if yes are there are necessary components that wi
 Are there tools or tech that don't exist that will be produced to facilitate the project?
 -->
 
-All set here. I am already paying for [probaverse.com](https://probaverse.com), and will move the package websites under that domain.I am using GitHub for development.
+I'm all set here. I am already paying for [probaverse.com](https://probaverse.com), and will move the package websites under that domain. I am using GitHub for development.
 
 ## Funding
 <!-- 
@@ -46,4 +46,4 @@ There are two areas where help from the ISC would be great.
 
 1. A lack of breathing room has also meant that the probaverse has been sheltered from the wider community since its inception in early 2020. I would appreciate help in _getting_ help from others and broadcasting the probaverse to the wider community.
 
-2. Ultimately I need to be able to set aside time to work on this project. I hardly have "free time" as a working dad, either. With a financial contribution from the ISC, I will go on reduced hours at work to get this project done.
+2. Ultimately I need to be able to set aside time to work on this project, and I can't rely on "free time" being a working parent. With a financial contribution from the ISC, I will go on reduced hours at work to get this project done.

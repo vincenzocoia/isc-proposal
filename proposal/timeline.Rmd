@@ -27,10 +27,10 @@ Assuming 10 hours per week available for software development:
 - Weeks 1-2: Get a preliminary distribution object coded.
 - Week 3: If waiting for feedback, spend time on Milestone 3 tasks (documentation, unit tests, CRAN-readiness).
 - Weeks 4-5: Update distribution object with feedback.
-- Week 6: Rewire all the things.
+- Week 6: Rewire all the things listed in Milestone 2.
 - Week 7: Submit to CRAN.
 
-Assuming a November 1, 2024 start, this work will be done on Friday December 20, 2024 -- before the winter holidays.
+(Milestones are listed in the "Success" section). Assuming a November 1, 2024 start, this work will be done on Friday December 20, 2024.
 
 ## Other aspects
 <!--

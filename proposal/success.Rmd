@@ -17,14 +17,14 @@ Milestone 1: The distribution object is refactored so that:
 Milestone 2: Some things will need rewiring to connect to the new distribution structure.
 
 - Creation of standard probability distributions (like `dst_norm()`, `dst_gev()`) are rewired and pass unit tests.
-- Distribution evaluation functions (like `mean()`, `eval_density()`, `eval_cdf()`, ...) are rewired and pass unit tests.
-- Distribution evaluation functions calculated by a "bridge" from another property have been rewired and pass unit tests -- for example, quantiles are calculated through a cumulative distribution function. **Only existing bridges in the distionary package will be used; no new ones will be created.
+- Distribution evaluators (like `mean()`, `eval_density()`, `eval_cdf()`, ...) are rewired and pass unit tests.
+- Distribution evaluators calculated using other properties (e.g., density calculated from cdf) have been rewired and pass unit tests.
 - Functions to determine discrete points in a distribution (e.g., `next_discrete()`) are rewired and pass unit tests.
 
 Milestone 3: Some additional hygiene and overhead would be useful to budget for, too:
 
 - Creation of unit tests around the new construct of a distribution _family_ (when the parameters are not resolved).
-- Creation of unit tests that have not been made yet for existing functionality.
+- Creation of unit tests that have not been made yet for existing functionality (aiming for at least 80\% code coverage, ideally).
 - Updating the documentation (function level, package level, etc.)
 - Cleanup and submit to CRAN.
 
@@ -40,7 +40,7 @@ Success is described above, but we can use the three milestones as the key marke
 How could this be extended / developed in the future by yourself and/or the community in general?
 -->
 
-I have big plans for the probaverse, so development will continue, through some means.
+I have big plans for the probaverse, so development will continue, through some means. This also means that if I finish the planned work early, there's still work I can do on the probaverse. 
 
 Immediate future work:
 
@@ -50,8 +50,8 @@ Immediate future work:
 Then:
 
 - Advances in **famish** by spearheading some package designs (this is the most frankenstein-like package in the probaverse currently).
-- Empirical distributions are sufficiently complex that they justify their own package (currently empirical distributions are narrow and simple).
-- Advances in **distionary** by adding user-defined ways to evaluate a distribution. This can be done by defining a "representation" object and building bridges to other representations through a network.
+- Empirical distributions are sufficiently complex that they justify their own package (currently empirical distributions are narrow and overly simple).
+- Advances in **distionary** by adding user-defined ways to evaluate a distribution. This can be done by defining a "representation" object (examples: density, cdf, quantiles) and building bridges between these representations through a network.
 
 ## Key risks
 <!-- 
@@ -64,10 +64,10 @@ What sort of things could come up that can delay or break the project?
 
 -->
 
-The biggest risk is if the design I have planned for refactoring the distribution object doesn't work. But this is easily mitigated by adjusting or simplifying the design, and getting community feedback. Ultimately, the lowest bar is to put **distionary** on CRAN, so I could easily change the design to be more like the current design if need be.
+The biggest risk is if the planned refactoring of the distribution object does not converge on a workable solution to satisfy all goals. But this is easily mitigated by adjusting or simplifying the design, and getting community feedback. Ultimately, the lowest bar is to put **distionary** on CRAN, so I could easily change the design to be more like the current design if need be.
 
 The other risk is that it's just me on the project:
 
 - This could lead to poor package design if I'm the only one providing input. But I'll be seeking early feedback from ROpenSci, and I imagine the ISC can help here, too.
 - The project could get delayed because of sickness or some other issue that shows up, but this is unlikely. The worst case scenario is that BGC can't include the probaverse in our FFA manual -- not the end of the world since the probaverse is still useful.
-- From your perspective, you probably haven't been in touch with me yet, which can generate a host of worries. I hope I'm able to convey how serious I am about this software and how capable I am through this proposal.
+- From your perspective, you probably haven't been in touch with me yet, which can generate a host of worries. I hope I'm able to convey how serious I am about this software and how capable I am.
